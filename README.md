@@ -1,27 +1,33 @@
 # ClarityTooltipStructuralDirective
+Clarity tootip based on a structural directives.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
+```
+<ng-template #grid>
+  <clr-datagrid>
+    <clr-dg-column>User ID</clr-dg-column>
+    <clr-dg-column>Name</clr-dg-column>
 
-## Development server
+    <clr-dg-row *ngFor="let user of users">
+      <clr-dg-cell>{{user.id}}</clr-dg-cell>
+      <clr-dg-cell>{{user.name}}</clr-dg-cell>
+    </clr-dg-row>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    <clr-dg-footer>{{users.length}} users</clr-dg-footer>
+  </clr-datagrid>
+</ng-template>
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<clr-icon shape="list" *mytooltip="grid" size="48"></clr-icon>
 
-## Build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+OR
+```
 
-## Running unit tests
+<clr-icon shape="info-circle"
+  *mytooltipText="'Lorem ipsum dolor sit amet, consectetur adipisicing elit'" size="48"></clr-icon>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## DEMO
+https://nagarsuresh.github.io/clarity-tooltip-structural-directive/
