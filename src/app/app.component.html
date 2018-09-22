@@ -1,20 +1,81 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="main-container">
+  <header class="header header-6">
+    <div class="branding">
+      <a href="javascript:void(0)" routerLink="/" class="nav-link">
+        <span class="title">Clarity Tooltip Structural Directives</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <a href="https://github.com/nagarsuresh/clarity-tooltip-structural-directive" class="nav-link nav-text">Source
+        Code</a>
+    </div>
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+      <ng-template #grid>
+        <clr-datagrid>
+          <clr-dg-column>User ID</clr-dg-column>
+          <clr-dg-column>Name</clr-dg-column>
 
+          <clr-dg-row *ngFor="let user of users">
+            <clr-dg-cell>{{user.id}}</clr-dg-cell>
+            <clr-dg-cell>{{user.name}}</clr-dg-cell>
+          </clr-dg-row>
+
+          <clr-dg-footer>{{users.length}} users</clr-dg-footer>
+        </clr-datagrid>
+      </ng-template>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          Clarity Tooltip with Custom template:
+          <clr-icon shape="list" *mytooltip="grid" size="48"></clr-icon>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          Clarity Tooltip with string tooltip:
+          <clr-icon shape="info-circle" *mytooltipText="'Lorem ipsum dolor sit amet, consectetur adipisicing elit'"
+            size="48"></clr-icon>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <code>
+            <pre>
+
+                &lt;ng-template #grid&gt;
+                    &lt;clr-datagrid&gt;
+                      &lt;clr-dg-column&gt;User ID&lt;/clr-dg-column&gt;
+                      &lt;clr-dg-column&gt;Name&lt;/clr-dg-column&gt;
+                      &lt;clr-dg-row *ngFor=&quot;let user of users&quot;&gt;
+                        &lt;clr-dg-cell&gt; user.id &lt;/clr-dg-cell&gt;
+                        &lt;clr-dg-cell&gt; user.name &lt;/clr-dg-cell&gt;
+                      &lt;/clr-dg-row&gt;
+                      &lt;clr-dg-footer&gt; users.length  users&lt;/clr-dg-footer&gt;
+                    &lt;/clr-datagrid&gt;
+                &lt;/ng-template&gt;
+
+                Clarity Tooltip with Custom template:
+                &lt;clr-icon shape=&quot;list&quot; *mytooltip=&quot;grid&quot; size=&quot;48&quot;&gt;&lt;/clr-icon&gt;
+            </pre>
+          </code>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <code>
+            <pre>
+              Clarity Tooltip with string tooltip:
+              &lt;clr-icon shape=&quot;info-circle&quot;
+                *mytooltipText=&quot;'Lorem ipsum dolor sit amet, consectetur adipisicing elit'&quot;
+                size=&quot;48&quot;&gt;&lt;/clr-icon&gt;
+            </pre>
+          </code>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
